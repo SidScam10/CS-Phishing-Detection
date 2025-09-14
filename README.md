@@ -72,18 +72,20 @@ Based on test results with 10 diverse email samples:
 
 ```
 Code/
-├── blacklist.ipyb                     # Main hybrid detection system
-├── ml_integration_fixed.ipyb          # ML model training
-├── model_classes.py                 # Custom ML feature extractors
+├── blacklist.ipyb                  # Main hybrid detection system
+├── ml_integration_fixed.ipyb       # ML model training
+├── model_classes.py                # Custom ML feature extractors
 ├── test_eml_files_clean.py         # ML-only testing script
-├── model_evaluation.py              # ML performance evaluation
-├── phishing_email_model_fixed.pkl   # Trained ML model
-├── whitelist.json                   # Trusted domains configuration
+├── model_evaluation.py             # ML performance evaluation
+├── phishing_email_model_fixed.pkl  # Trained ML model
+├── whitelist.json                  # Trusted domains configuration
 ├── CEAS_08.csv                     # ML training dataset
-├── requirements.txt                 # Python dependencies
-├── emails/                         # Test email directory
-│   ├── *.eml                      # Test email files
-└── attachments/                    # Extracted email attachments
+├── requirements.txt                # Python dependencies
+├── test_emails/                    # Test emails directory
+│   ├── *.eml                       # Test email files
+├── malicious_emails/               # Dangerous Phishing Email Samples directory
+│   ├── *.eml                       # Test email files
+└── malicious_attachments/          # Extracted malicious email attachments
 ```
 
 ## 🚀 Usage
