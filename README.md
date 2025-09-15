@@ -55,7 +55,7 @@ Based on test results with 10 diverse email samples:
 1. **Clone the repository**:
    ```bash
    git clone <repository-url>
-   cd phishing-email-detection
+   cd CS-Phishing-Detection
    ```
 
 2. **Create & Activate Virtual Environment**:
