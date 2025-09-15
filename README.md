@@ -50,7 +50,7 @@ Based on test results with 10 diverse email samples:
 - **Unknown Phishing**: ML fallback detected with 71-86% confidence
 - **Legitimate Emails**: Correctly classified with 63-75% confidence
 
-## 🛠️ Installation
+## 🛠️ Installation & Running
 
 1. **Clone the repository**:
    ```bash
@@ -58,34 +58,68 @@ Based on test results with 10 diverse email samples:
    cd phishing-email-detection
    ```
 
-2. **Install dependencies**:
+2. **Create & Activate Virtual Environment**:
+   ```bash
+   python -m venv venv
+   venv/Scripts/activate
+   ```
+
+3. **Install dependencies to Virtual Environment**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Verify installation**:
+4. **Train ML Model**:
+- *Extract dataset CEAS_08.csv from archive.zip if needed*
    ```bash
-   python phishing_detection.ipynb
+   run ml_training_script/ml_training.ipynb
    ```
+
+5. **Run Phishing Detection Script**:
+- *Create .env file in root with VIRUSTOTAL_API_KEY*
+   ```bash
+   run phishing_detection_script/phishing_detection.ipynb
+   ```
+- *Change EML_DIR to malicious_emails or test_emails if needed*
 
 ## 📁 Project Structure
 
 ```
 Code/
-├── blacklist.ipyb                  # Main hybrid detection system
-├── ml_training.ipyb       # ML model training
-├── model_classes.py                # Custom ML feature extractors
-├── test_eml_files_clean.py         # ML-only testing script
-├── model_evaluation.py             # ML performance evaluation
-├── phishing_email_model_fixed.pkl  # Trained ML model
-├── whitelist.json                  # Trusted domains configuration
-├── CEAS_08.csv                     # ML training dataset
-├── requirements.txt                # Python dependencies
-├── test_emails/                    # Test emails directory
-│   ├── *.eml                       # Test email files
-├── malicious_emails/               # Dangerous Phishing Email Samples directory
-│   ├── *.eml                       # Test email files
-└── malicious_attachments/          # Extracted malicious email attachments
+├── malicious_emails/                # Stores known malicious email samples for reference
+│
+├── ml_script_evaluation/            # Scripts and artifacts for evaluating the ML model's performance
+│   ├── model_evaluation.py          # Script to evaluate the trained model against a dataset
+│   ├── model_classes.py             # Custom classes (transformers) used by the evaluation script
+│   ├── confusion_matrix.png         # Output visualization of the model's prediction accuracy
+│   ├── roc_curve.png                # Output ROC curve visualization for model performance
+│   └── model_evaluation_report.txt  # Text report of the evaluation metrics
+│
+├── ml_training_script/              # Script for training the machine learning model
+│   └── ml_training.ipynb            # Jupyter Notebook to train and create the .pkl model file
+│
+├── phishing_detection_script/       # The main hybrid detection script and its components
+│   ├── phishing_detection.ipynb     # Main script to analyze individual .eml files
+│   ├── model_classes.py             # Custom classes for ML feature extraction
+│   ├── whitelist.json               # Configuration for trusted URLs and domains
+│   └── malicious_attachments/       # Default directory where malicious attachments are saved
+│
+├── test_emails/                     # Sample .eml files for testing the detection script
+│   ├── ML-Test.eml                
+│   ├── Phishtank-url.eml
+│   ├── test_sample_message.eml
+│   └── VirusTotal.eml
+│
+├── test_eml_files/                  # Scripts for batch testing multiple .eml files at once
+│   └── test_eml_files_clean.py      # Script to run tests on a directory of emails
+│
+├── .env*                             # File for local environment variables (API keys)
+├── archive.zip                      # Project training datasets archive
+├── CEAS_08.csv                      # The dataset used for training the ML model
+├── phishing_email_model_fixed.pkl   # The pre-trained machine learning model file
+└── requirements.txt                 # Lists the required Python packages for installation
+
+* - User Created
 ```
 
 ## 🚀 Usage
@@ -93,7 +127,7 @@ Code/
 ### 🎯 Main System - Hybrid Detection
 
 ```bash
-phishing_detection.ipynb
+phishing_detection_script/phishing_detection.ipynb
 ```
 
 This runs the complete hybrid detection system:
@@ -101,22 +135,24 @@ This runs the complete hybrid detection system:
 2. **Whitelist Check**: Skip analysis for trusted domains
 3. **ML Fallback**: Use machine learning when blacklist is inconclusive
 4. **Final Verdict**: Provide comprehensive security assessment
+5. **Output Generated**: Collects and Stores malicious attachments for Emails from sample .eml files
 
 ### 🤖 ML-Only Testing (Alternative)
 
 ```bash
-python test_eml_files_clean.py
+python test_eml_files/test_eml_files_clean.py
 ```
+- *Change email directory and results to malicious_emails or test_emails accordingly*
 
 This runs only the ML component for comparison/testing.
 
 ### 📊 ML Model Training
 
 ```bash
-ml_training.ipynb
+ml_training_script/ml_training.ipynb
 ```
 
-This trains the ML fallback model using the CEAS-08 dataset.
+This trains the ML fallback model using the CEAS-08 dataset and generates .pkl file to save the trained model
 
 ## 🔄 Hybrid Architecture Details
 
@@ -188,13 +224,13 @@ The system includes comprehensive testing with:
 
 ### Blacklist Configuration:
 - Edit `whitelist.json` to add trusted domains
-- Configure API keys for PhishTank and VirusTotal
+- Configure API key for VirusTotal (Phishtank API key not needed)
 - Adjust detection thresholds
 
 ### ML Model Tuning:
 - Modify feature extraction in `model_classes.py`
 - Adjust Random Forest parameters
-- Retrain with new datasets
+- Retrain with new datasets from archive.zip or any other sources
 
 ## 📝 Output Format
 
@@ -203,8 +239,6 @@ The hybrid system provides detailed analysis:
 - **ML Results**: Pattern analysis with confidence scores
 - **Final Verdict**: Combined decision with reasoning
 - **Action Items**: Clear recommendations for handling
-
-
 
 ## 🔗 Dependencies
 
