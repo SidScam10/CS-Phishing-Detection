@@ -1,0 +1,16 @@
+From: "security.support-123" <security.support-123@update-mail.com>
+To: "Valued Customer" <user@example.com>
+Subject: Urgent: Action Required - Your Account is Suspended
+Date: Fri, 13 Sep 2025 10:10:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Dear Valued Customer,</p>
+<p>We detected unusual activity on your account. For your security, we have temporarily suspended your account access. Failure to verify your identity will result in permanent closure.</p>
+<p>You must log in immediately to restore access.</p>
+<p><a href="http://your-secure-portal-update.net/login">Verify Your Account Now</a></p>
+<p>Thank you for your cooperation.</p>
+</body>
+</html>

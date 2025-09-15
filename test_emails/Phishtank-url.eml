@@ -1,0 +1,16 @@
+From: "Security Notice" <notice@system-alerts.com>
+To: "User" <user@example.com>
+Subject: Please Review Your Recent Activity
+Date: Fri, 13 Sep 2025 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Dear User,</p>
+<p>Our system has detected some unusual activity on your account. Please review the details immediately by visiting the link below.</p>
+<p><a href="https://help-coinbase-us.typedream.app/">Click here to review your activity.</a></p>
+<p>Thank you,</p>
+<p>The Security Team</p>
+</body>
+</html>

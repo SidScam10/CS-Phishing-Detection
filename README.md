@@ -65,7 +65,7 @@ Based on test results with 10 diverse email samples:
 
 3. **Verify installation**:
    ```bash
-   python blacklist.ipynb
+   python phishing_detection.ipynb
    ```
 
 ## 📁 Project Structure
@@ -73,7 +73,7 @@ Based on test results with 10 diverse email samples:
 ```
 Code/
 ├── blacklist.ipyb                  # Main hybrid detection system
-├── ml_integration_fixed.ipyb       # ML model training
+├── ml_training.ipyb       # ML model training
 ├── model_classes.py                # Custom ML feature extractors
 ├── test_eml_files_clean.py         # ML-only testing script
 ├── model_evaluation.py             # ML performance evaluation
@@ -93,7 +93,7 @@ Code/
 ### 🎯 Main System - Hybrid Detection
 
 ```bash
-blacklist.ipynb
+phishing_detection.ipynb
 ```
 
 This runs the complete hybrid detection system:
@@ -113,7 +113,7 @@ This runs only the ML component for comparison/testing.
 ### 📊 ML Model Training
 
 ```bash
-ml_integration_fixed.ipynb
+ml_training.ipynb
 ```
 
 This trains the ML fallback model using the CEAS-08 dataset.

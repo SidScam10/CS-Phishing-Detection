@@ -1,0 +1,23 @@
+From: "Accounts Payable" <invoices@corporate-services.net>
+To: "Finance Dept" <finance@example.com>
+Subject: Invoice Attached for Immediate Payment
+Date: Fri, 13 Sep 2025 10:05:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="boundary-string"
+
+--boundary-string
+Content-Type: text/plain; charset="UTF-8"
+
+Please find the attached invoice for processing.
+
+Regards,
+Accounts Payable
+
+--boundary-string
+Content-Type: text/plain; name="invoice_details.txt"
+Content-Disposition: attachment; filename="invoice_details.txt"
+Content-Transfer-Encoding: base64
+
+WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNU
+LUZJTEUhJEgrSCo=
+--boundary-string--

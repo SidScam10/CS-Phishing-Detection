@@ -1,0 +1,5 @@
+filename,subject,sender,urls,body_length,prediction,confidence,prediction_proba
+ML-Test.eml,Urgent: Action Required - Your Account is Suspended,"""security.support-123"" <security.support-123@update-mail.com>",1,429,PHISHING,64.35033786708249,[0.35649662 0.64350338]
+Phishtank-url.eml,Please Review Your Recent Activity,"""Security Notice"" <notice@system-alerts.com>",1,324,PHISHING,69.82239519522109,[0.30177605 0.69822395]
+test_sample_message.eml,Testing Manuel Lemos' MIME E-mail composing and sending PHP class: HTML message,mlemos <mlemos@acm.org>,0,151,LEGITIMATE,69.43827274898575,[0.69438273 0.30561727]
+VirusTotal.eml,Invoice Attached for Immediate Payment,"""Accounts Payable"" <invoices@corporate-services.net>",0,144,PHISHING,61.632187355823845,[0.38367813 0.61632187]
